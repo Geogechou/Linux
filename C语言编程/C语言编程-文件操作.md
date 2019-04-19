@@ -45,7 +45,7 @@
 ## ioctl(设备驱动程序中对设备的IO通道进行管理)
 1. 头文件
 
-        #include<sys/>ioctl.h>
+        #include<sys/ioctl.h>
 2. 定义函数
 
         int ioctl(int fd,int cmd,...)
