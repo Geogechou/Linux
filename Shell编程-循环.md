@@ -1,22 +1,72 @@
-## Shell循环
+## while循环的语法
+```shell
+while [ condition expression ]
+do 
+    main process
+done
+```
 
-`expr "$str" : '^\(.*\.sh\)'`
+## for循环的语法
 
-找出str变量中匹配*(.*\.sh)的模式，其中括号(用转义字符。
+语法1
 
-### shell获取命令行输入
+```shell
+for name in word1 word2
+	do list
+done
+```
 
-* $# 表示输入几个参数
-* $1 表示输入的第一个参数
-* $2 表示输入的第二个参数
+举个栗子
 
-### shell中赋值
+```shell
+# shell中定义数组的方式
+nums=(1 2 3 4 5)
+# for循环遍历数组
+for i in ${nums[@]}
+do 
+	echo $i
+done
+```
 
-例如`a=2`
 
-### shell中判断
 
-`$a = 2`,等号左右空一个空格
+语法2
 
-赋值的时候用a即可，判断的时候需要用**$a**,表示引用
+```shell
+for name
+	do list
+done
+# 相当于,读取的是命令行参数
+for name in $1 $2 ...
+	do list
+done
+```
 
+## for中使用seq(类似C中的for实现)
+
+seq是产生一个整数序列
+
+例如写成<code>a=`seq 1 20`; echo $a</code>
+
+会输出*1 2 3 ......20*，20个数
+
+```shell
+for i in `seq 1 254`
+do 
+	ping -c 1 www.baidu.com
+done
+```
+
+### break语句
+
+例如`break`，退出循环
+
+*break2*,退出两层循环
+
+### continue语句
+
+提交结束本轮循环
+
+### exit语句
+
+`exit 1`,退出并返回1
