@@ -46,18 +46,18 @@
 
 * 举个栗子
 
-      `sed -E 's/([0-9]{2})-([0-9]{2})-([0-9]{4})/\3\.\2\.\1/g' time`
-
      ```shell
-      sed -i 's/https:\/\/www.sonydafa.com\/wechatApp/http:\/\/localhost:8080\/wechatApp_war_exploded/g' index.js
-      # sed的一条替换文本的命令
+   # 该命令将西方的日期显示转换为中国的日期显示格式，用()通过\1表示引用的是第一个元组
+     sed -E 's/([0-9]{2})-([0-9]{2})-([0-9]{4})/\3\.\2\.\1/g' time
+      # 该命令实现将https://www.sonydafa.com/wechatApp替换为http://localhost:8080/wechatApp_war_exploded   
       # -i表示替换文本并保存，默认是输出到屏幕上的
       # s表示是替换操作
       # 格式是s/pattern-to-find/replacement-pattern/
       # g表示全局替换
       # index.js是作用的文件名
-      # 正则表达式中需要用转义字符
-      # 该命令实现将https://www.sonydafa.com/wechatApp替换为http://localhost:8080/wechatApp_war_exploded
+      # 正则表达式中需要用转义字符    
+      sed sed -i's/https:\/\/www.sonydafa.com\/wechatApp/http:\/\/localhost:8080\/wechatApp_war_exploded/g' index.js
+      
      ```
 
 
@@ -75,8 +75,15 @@ awk自动对每行文本进行条件判断，满足条件执行动作(内置循�
 
 * 举个栗子
 
-* `ps -ef | awk '/guest/{printf("%s",$2);}'`, $2表示第二列，意思是正则表达式匹配*guest*模式，匹配之后执行的动作是*printf("%s",$2);*   , 就是把第二列打印出来。
-
-* `awk '{printf("%d: %s\n",NR,$0);}' hello.c` , 由于没有指定匹配条件，所以默认每行都匹配，NR表示行号，$0表示整行
-* `date | awk '{printf("%s",$3);}'` , 打印date日期的第三列
-* `ls -l | awk '$5>500 {printf("%s\n",$0)}'`  , 选择尺寸大于500kb的进行整行输出。
+```shell
+# $2表示第二列，意思是正则表达式匹配*guest*模式，匹配之后执行的动作是*printf("%s",$2);*   , 就是把第二列打印出来。
+ps -ef | awk '/guest/{printf("%s",$2);}'
+# 由于没有指定匹配条件，所以默认每行都匹配，NR表示行号，$0表示整行
+awk '{printf("%d: %s\n",NR,$0);}' hello.c
+# 打印date日期的第三列
+date | awk '{printf("%s",$3);}'
+# 选择尺寸大于500kb的进行整行输出。
+ls -l | awk '$5>500 {printf("%s\n",$0)}'
+# END表示循环结束后执行的语句,类似的START表示循环开始之前执行的语句
+cat books1.txt | awk '{sum+=$0;} END {print sum;}'
+```
