@@ -22,4 +22,3 @@ diff -u0 hello.c hello1.c
 ### file命令
 
 查看文件类型, `file hello.c`
-
