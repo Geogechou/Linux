@@ -21,7 +21,8 @@ find命令来遍历目录树
 
    * `-regex pattern`
 
-      pattern是整个路径名构成一个字符串
+      pattern是整个路径名构成一个字符串  
+      `find . -regex ".*[^\.c]" -print|xargs rm`,删除所有非c文件
 
    * `-type`选项
 
