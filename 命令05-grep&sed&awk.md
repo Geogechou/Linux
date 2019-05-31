@@ -1,10 +1,13 @@
 ## 文本处理命令
 
-* grep/egrep/fgrep：在文件中查找字符串(筛选)
-* sed：流编辑(加工)
-* awk：逐行扫描进行文本处理的一门语言(筛选与加工)
+* <a href="#grep">grep/egrep/fgrep</a>  
+在文件中查找字符串(筛选)  
+* <a href="#sed">sed</a>  
+流编辑(加工)  
+* <a href="#awk">awk</a>  
+逐行扫描进行文本处理的一门语言(筛选与加工)
 
-## grep (global regular expression print)
+<h2 id="grep">grep (global regular expression print)</h2>
 
 1. 语法
 
@@ -33,7 +36,7 @@
    * `ls -l | grep '\.sh'`, 找出所有的shell文件（）
    * `grep -E '[0-9]+' hello.c`, 使用扩展的正则表达式，需要加上选项-E
 
-## sed(流编辑和正则表达式替换)
+<h2 id="sed">sed(流编辑和正则表达式替换)</h2>
 * sed命令默认输出到屏幕，所以当要做彻底的文件替换用-i选项
 
 * 替换文本中匹配的模式
@@ -61,7 +64,7 @@
      ```
 
 
-## awk(行列筛选及文本加工)
+<h2 id="awk">awk(行列筛选及文本加工)</h2>
 
 awk选自三个发明人的名字
 
