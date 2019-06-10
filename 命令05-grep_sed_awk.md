@@ -90,3 +90,6 @@ ls -l | awk '$5>500 {printf("%s\n",$0)}'
 # END表示循环结束后执行的语句,类似的START表示循环开始之前执行的语句
 cat books1.txt | awk '{sum+=$0;} END {print sum;}'
 ```
+#### NR表示行号
+`netstat -s| awk 'NR>+29 && NR<=40' `,打印行号大于29行，小于等于40行的行，awk默认动作时打印
+
