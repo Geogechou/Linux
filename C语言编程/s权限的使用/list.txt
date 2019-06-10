@@ -1,0 +1,6 @@
+# list.txt #
+#-------------#
+#name salary #
+george $1200
+handoop $1000
+#------------#
