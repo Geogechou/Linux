@@ -51,18 +51,21 @@ od -c text.txt
 ```
 
 <h3 id="id5">tee三通(在屏幕显示并且保存到文件中)</h3>
+
 ```shell
 # 将pointer.c的内容显示在屏幕上，同时输入到test文件中
 cat pointer.c | tee test
 ```
 
 <h3 id="id6">wc统计行数</h3>
+
 ```shell
 # 统计所有c文件的行数
 wc -l *.c
 ```
 
 <h3 id="id7">tr替换字符</h3>
+
 ```shell
 # 将所有小写字母替换成大写字母
 cat report.txt | tr '[a-z]' '[A-Z]'
