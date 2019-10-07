@@ -33,7 +33,6 @@
 * 交互式键盘输入
 
 <h3 id="xsel">xsel命令</h3>
-
 需要安装xsel
 
 `cat env.c | xsel`, 将env.c的内容复制到剪贴板上。
@@ -54,7 +53,6 @@
 
 
  <h3 id="symbollink"> 符号链接</h3>
-
 `ln -s books sym.link`, 建立books文件的符号链接sym.link文件，符号链接文件的文件类型是l。
 
 符号链接文件仅仅保存被链接文件的文件名。
@@ -68,10 +66,3 @@
 ![符号链接数据结构](https://raw.githubusercontent.com/georgezhou314/imageRepo/master/linux/文件2.png)
 
 ### 系统调用
-
-
-
-
-
-
-

@@ -51,3 +51,4 @@ systemctl start mysql
 bash /home/pan/tomcat/bin/startup.sh
 exit 0
 ```
+
