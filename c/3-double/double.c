@@ -28,5 +28,8 @@ int main(void)
 	double int_sec=0;
 	double f_sec=	modf(2.78,&int_sec);
 	printf("modf函数,2.78的整数部分是:%lf,小数部分是%lf\n",int_sec,f_sec);
+	//科学计数法,只保留两位小数
+	double sc_d=123000000;
+	printf("科学计数法%.2e\n",sc_d);
 	return 0;
 }
