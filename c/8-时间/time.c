@@ -18,6 +18,6 @@ int main(void)
 	//1s=1,000,000us
 	usleep(1000000);
 	printf("mktime转换%ld\n",now_stamp2);
-
+	printf("增量编译\n");
 	return 0;
 }
