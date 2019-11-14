@@ -12,3 +12,9 @@
 * `git branch -a` 
 显示本地分支和远程分支
 
+>从GitHub拉去出一个仓库并在本地新增文件
+>1. `git remote rm origin`   
+>2. `git remote add origin git@github.com:Geogechou/Java.git`   
+>3. `git clone git@github.com:Geogechou/Java.git`   
+>4. `git push origin master`     
+
