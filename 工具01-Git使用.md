@@ -11,4 +11,7 @@
 表示删除远程分支branch1  
 * `git branch -a` 
 显示本地分支和远程分支
-
+### 清除跟踪所有的.idea文件
+```
+git rm --cached -rf .idea
+```
