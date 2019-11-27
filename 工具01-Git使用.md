@@ -12,6 +12,21 @@
 * `git branch -a` 
 显示本地分支和远程分支
 <<<<<<< HEAD
+### 只clone近几次的提交
+```
+# 仅跟踪近3次commit，体积明显要小很多
+git clone xxx.git --depth 3
+```
+### 抛弃全部提交历史，重建
+```
+rm -rf .git
+git init
+git add -A
+git commit -m "核平"
+git remote add origin '*.git'
+git push origin master --force
+
+```
 ### 清除跟踪所有的.idea文件
 ```
 git rm --cached -rf .idea
