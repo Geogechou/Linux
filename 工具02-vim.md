@@ -61,7 +61,9 @@
 ```shell
 # 打开多个文件
 vim a.c b.c x.cpp
-# 垂直分屏
+# 打开上一个文件(缓冲),bp全称是buffer prev;bn全称是buffer next
+:bp
+# 垂直分屏,简写vs
 :vsplit
 # 水平分屏
 :split
