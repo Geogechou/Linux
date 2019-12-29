@@ -62,6 +62,10 @@ cat pointer.c | tee test
 ```shell
 # 统计所有c文件的行数
 wc -l *.c
+# 统计所有单词数
+wc -w list.txt
+# 统计字符数
+wc -c list.txt
 ```
 
 <h3 id="id7">tr替换字符</h3>
