@@ -29,7 +29,8 @@ git push origin master --force
 ```
 ### 清除跟踪所有的.idea文件
 ```
-git rm --cached -rf .idea
+# -r表示递归删除跟踪的目录
+git rm -r --cached -rf .idea
 ```
 =======
 
