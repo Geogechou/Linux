@@ -41,3 +41,6 @@ git rm -r --cached -rf .idea
 >4. `git push origin master`     
 
 >>>>>>> f5ad8c3c734fb8b5d4d1eb5192673120508aeeb1
+### Git命令行中文路径出现\123编码
+切换回正常中文显示
+`git config --global core.quotepath false`
