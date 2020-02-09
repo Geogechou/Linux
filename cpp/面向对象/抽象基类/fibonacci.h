@@ -63,16 +63,5 @@ std::ostream& fibonacci::print(std::ostream& os) const
 	return os;
 }
 
-/*
-bool fibonacci::check_integrity(int pos) const
-{
-	if(!num_sequence::check_integrity(pos))
-		return false;
-	if(pos>_elems.size())
-		fibonacci::gen_elems(pos);
-	return true;
-}
-*/
-
 #endif
 
