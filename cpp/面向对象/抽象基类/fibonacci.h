@@ -4,18 +4,13 @@
 #include "num_sequence.h"
 class fibonacci: public num_sequence{
 	public:
-		fibonacci(int len=1,int beg_pos=1):_length(len),_beg_pos(beg_pos){}
+		fibonacci(int len=1,int beg_pos=1):num_sequence(len,beg_pos){}
 		virtual const char* what_am_i() const{ return "fibonacci";}
 		virtual int elem(int pos) const;
 		virtual std::ostream& print(std::ostream &os=std::cout) const;
-		//新增方法
-		int length() const {return _length;}
-		int beg_pos() const {return _beg_pos;}
 	
 	protected:
 		virtual void gen_elems(int pos) const;
-		int _length;
-		int _beg_pos;
 		static std::vector<int> _elems;
 };
 

@@ -7,5 +7,6 @@ int main(void)
 	std::cout<<fib;
 	fibonacci fib2(5,11);
 	std::cout<<fib2;
+	fib.display(std::cout,2);
 	return 0;
 }
