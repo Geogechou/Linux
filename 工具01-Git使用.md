@@ -10,8 +10,6 @@
 * `git push origin --delete branch1` 
 表示删除远程分支branch1  
 * `git branch -a` 
-显示本地分支和远程分支
-<<<<<<< HEAD
 ### 只clone近几次的提交
 ```
 # 仅跟踪近3次commit，体积明显要小很多
@@ -32,15 +30,13 @@ git push origin master --force
 # -r表示递归删除跟踪的目录
 git rm -r --cached -rf .idea
 ```
-=======
 
->从GitHub拉去出一个仓库并在本地新增文件
+### 从GitHub拉去出一个仓库并在本地新增文件
 >1. `git remote rm origin`   
 >2. `git remote add origin git@github.com:Geogechou/Java.git`   
 >3. `git clone git@github.com:Geogechou/Java.git`   
 >4. `git push origin master`     
 
->>>>>>> f5ad8c3c734fb8b5d4d1eb5192673120508aeeb1
 ### Git命令行中文路径出现\123编码
 切换回正常中文显示
 `git config --global core.quotepath false`
