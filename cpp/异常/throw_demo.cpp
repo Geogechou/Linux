@@ -2,7 +2,7 @@
 #include <string>
 #include "iterator_overflow.h"
 
-void visit(int pos)
+void visit(int pos) 
 {
 	int max=10;
 	if(pos > max){
@@ -15,14 +15,15 @@ void visit(int pos)
 	if(pos < 0)
 		throw -1;
 }
-
 int main()
 {
 	try{
 		visit(20);
 	}
-	catch(iterator_overflow & e){
-		e.printStackTrace();
+	catch(std::exception & e){
+		e.what();
+		//还可以继续抛出
+		//throw;
 	}
 	catch(int eno){
 		std::cout<<"error no: "<<eno<<std::endl;
@@ -31,5 +32,10 @@ int main()
 		//常量字符串必须用const char*, 不可用string
 		std::cout<<"error info: "<<estr<<std::endl;
 	}
+	/*
+	catch( ... ){
+		std::cout<<"捕获所有的异常"<<std::endl;	
+	}
+	*/
 	return 0;
 }
