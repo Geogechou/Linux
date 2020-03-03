@@ -43,6 +43,12 @@ int main()
 			break;
 		}
 		printf("客户端发送信息: %s\n",strbuffer);
+		memset(strbuffer,0,sizeof(strbuffer));
+		if( recv(sockfd,strbuffer,sizeof(strbuffer),0) <= 0){
+			break;
+		}
+		printf("客户端接受到的信息:%s\n",strbuffer);
+
 	}
 	close(sockfd);
 	return 0;
