@@ -48,6 +48,10 @@ ls -a
 cd /
 # 回到上一级目录  
 cd  ..
+# 返回home目录
+cd ~
+# 返回上一次工作目录
+cd -
 ```
 
 ### mkdir(make directory)  
