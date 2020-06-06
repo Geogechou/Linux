@@ -6,6 +6,8 @@
 ls -l filename
 # 显示所有文件，包括隐藏文件
 ls -a
+# 以修改时间排序
+ls -t
 
 ```
 ### pwd(print working directory)
