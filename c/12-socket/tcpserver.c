@@ -15,8 +15,9 @@ int main()
 	memset(&servaddr,0,sizeof(servaddr));
 	//协议族
 	servaddr.sin_family = AF_INET;
-	//本主机的任意ip地址
+	//本主机的任意ip地址，可能有多个网卡的地址
 	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+	//servaddr.sin_addr.s_addr = inet_addr("47.93.28.165"),指定本主机的唯一ip地址
 	//绑定通信端口
 	servaddr.sin_port = htons(5000);
 	if(bind(listenfd,(struct sockaddr* )&servaddr,sizeof(servaddr)) != 0){
