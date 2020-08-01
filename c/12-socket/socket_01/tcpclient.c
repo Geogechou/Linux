@@ -7,14 +7,13 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-
-int main()
+int init_client(const char* ip,int port)
 {
 	//创建客户端的socket
 	int sockfd = socket(AF_INET,SOCK_STREAM,0);
 	//ip地址数据结构
 	struct hostent* h;
-	if( (h = gethostbyname("127.0.0.1")) == 0 ){
+	if( (h = gethostbyname(ip)) == 0 ){
 		perror("gethostbyname error\n");
 		close(sockfd);
 		return -1;
@@ -23,7 +22,7 @@ int main()
 	struct sockaddr_in servaddr;
 	memset(&servaddr,0,sizeof(servaddr));
 	servaddr.sin_family = AF_INET;
-	servaddr.sin_port = htons(5000);
+	servaddr.sin_port = htons(port);
 	memcpy(&servaddr.sin_addr.s_addr, h->h_addr, h->h_length);
 	//想服务器发起连接请求
 	if( connect(sockfd,(struct sockaddr*)&servaddr,sizeof(servaddr)) != 0){
@@ -31,7 +30,15 @@ int main()
 		close(sockfd);
 		return -1;
 	}
-
+	return sockfd;
+}
+int main()
+{
+	int sockfd = init_client("127.0.0.1",5000);
+	if(sockfd <= 0){
+		printf("创建连接失败\n");
+		return -1;
+	}
 	char strbuffer[1024];
 	//与服务器通信
 	srand(time(0));

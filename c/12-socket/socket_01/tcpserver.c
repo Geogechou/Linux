@@ -5,8 +5,7 @@
 #include <string.h>
 #include <stdio.h>
 
-
-int main()
+int init_server(int port)
 {
 	//创建用于监听的socket
 	int listenfd = socket(AF_INET,SOCK_STREAM,0);
@@ -19,7 +18,7 @@ int main()
 	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
 	//servaddr.sin_addr.s_addr = inet_addr("47.93.28.165"),指定本主机的唯一ip地址
 	//绑定通信端口
-	servaddr.sin_port = htons(5000);
+	servaddr.sin_port = htons(port);
 	if(bind(listenfd,(struct sockaddr* )&servaddr,sizeof(servaddr)) != 0){
 		perror("绑定出错");
 		close(listenfd);
@@ -29,6 +28,16 @@ int main()
 	if( listen(listenfd,5) != 0){
 		perror("监听失败");
 		close(listenfd);
+		return -1;
+	}
+	return listenfd;
+
+}
+int main()
+{
+	int listenfd = init_server(5000);
+	if(listenfd <= 0){
+		perror("服务器初始化失败\n");
 		return -1;
 	}
 	printf("服务器建立成功,开始监听\n");
