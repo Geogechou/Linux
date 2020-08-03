@@ -9,7 +9,7 @@
 
 [od以八進制和十六進制顯示文件內容](https://github.com/georgezzzh/Linux/blob/master/%E5%91%BD%E4%BB%A401-cat_more_tail_wc_tee_tr.md#id4)
 
-[tail(https://github.com/georgezzzh/Linux/blob/master/%E5%91%BD%E4%BB%A401-cat_more_tail_wc_tee_tr.md#id3)
+[tail](https://github.com/georgezzzh/Linux/blob/master/%E5%91%BD%E4%BB%A401-cat_more_tail_wc_tee_tr.md#id3)
 
 [tee三通,在屏幕中顯示並保存到文件中](https://github.com/georgezzzh/Linux/blob/master/%E5%91%BD%E4%BB%A401-cat_more_tail_wc_tee_tr.md#id5)
 
