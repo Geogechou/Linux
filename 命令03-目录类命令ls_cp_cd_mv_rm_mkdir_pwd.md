@@ -8,7 +8,8 @@
 * <a href="#id7">rmdir(remove directory)</a>
 ## 文件类命令
 
-<h3 id="id0">ls命令(list)</h3>
+<h3 id="id0">ls命令(list)</h3>  
+
 ```shell
 # 查看filename文件的详细信息
 ls -l filename
@@ -16,8 +17,8 @@ ls -l filename
 ls -a
 # 以修改时间排序
 ls -t
-
 ```
+
 <h3 id="id1">pwd(print working directory)</h3>显示当前所在的工作目录
 `pwd`
 
