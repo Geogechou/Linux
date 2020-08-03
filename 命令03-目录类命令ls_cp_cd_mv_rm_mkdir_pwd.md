@@ -63,6 +63,8 @@ cd -
 ```shell
 #创建新目录  
 mkdir newdir
+# 创建多级目录,创建出father/son的目录
+mkdir father/son
 ```
 
 ### rmdir(remove directory)
