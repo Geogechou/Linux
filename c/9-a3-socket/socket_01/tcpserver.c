@@ -4,9 +4,12 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdio.h>
+#include <signal.h>
 
 int init_server(int port)
 {
+	//避免僵尸进程, ps -ef命令后面带[defunct]的是僵尸进程，指的是子进程结束，但是没有父进程回收资源
+	signal(SIGCHLD,SIG_IGN);
 	//创建用于监听的socket
 	int listenfd = socket(AF_INET,SOCK_STREAM,0);
 	//服务器地址信息的数据结构
@@ -45,23 +48,36 @@ int main()
 	int clientfd;
 	int socklen;
 	struct sockaddr_in clientaddr; //客户端的地址信息
-	clientfd = accept(listenfd,(struct sockaddr *)& clientaddr, (socklen_t*)&socklen);
-	//与客户端通信
-	char strbuffer[1024];
 	while(1){
-		memset(strbuffer,0,sizeof(strbuffer));
-		if(recv(clientfd,strbuffer,sizeof(strbuffer),0) <= 0){
-			break;
+		clientfd = accept(listenfd,(struct sockaddr *)& clientaddr, (socklen_t*)&socklen);
+		if(clientfd > 0 && fork()>0){
+			//父进程关闭与客户端的连接并且继续监听
+			close(clientfd);
+			continue;
+		}else{
+			//子进程关闭监听
+			close(listenfd);
 		}
-		printf("接受到的信息:%s\n",strbuffer);
-		strcpy(strbuffer,"ok");
-		if(send(clientfd,strbuffer,strlen(strbuffer),0) <= 0){
-			break;
+		//与客户端通信
+		char strbuffer[1024];
+		while(1){
+			memset(strbuffer,0,sizeof(strbuffer));
+			if(recv(clientfd,strbuffer,sizeof(strbuffer),0) <= 0){
+				break;
+			}
+			printf("接受到的信息:%s\n",strbuffer);
+			sleep(3);
+			strcpy(strbuffer,"ok");
+			if(send(clientfd,strbuffer,strlen(strbuffer),0) <= 0){
+				break;
+			}
+			printf("发送的信息:%s\n",strbuffer);
 		}
-		printf("发送的信息:%s\n",strbuffer);
+		//关闭socket
+		close(clientfd);
+		//子进程返回，结束子进程
+		return 0;
 	}
-	//关闭socket
 	close(listenfd);
-	close(clientfd);
 	return 0;
 }
