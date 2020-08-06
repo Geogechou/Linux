@@ -91,5 +91,5 @@ ls -l | awk '$5>500 {printf("%s\n",$0)}'
 cat books1.txt | awk '{sum+=$0;} END {print sum;}'
 ```
 #### NR表示行号
-`netstat -s| awk 'NR>+29 && NR<=40' `,打印行号大于29行，小于等于40行的行，awk默认动作时打印
-
+`netstat -s| awk 'NR>+29 && NR<=40' `,打印行号大于29行，小于等于40行的行，awk默认动作时打印  
+`ps -ef|awk 'NR == 1 {print $2}`, NR==1，表示只打印一行
