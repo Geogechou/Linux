@@ -6,13 +6,25 @@ do
 done
 ```
 
+#### while循环实例
+
+```shell
+# 一共执行4次
+i=0
+while ((i<4))
+do
+((i+=1))
+done
+```
+
 ## for循环的语法
 
 语法1
 
 ```shell
 for name in word1 word2
-	do list
+do 
+	main process
 done
 ```
 
@@ -24,36 +36,32 @@ nums=(1 2 3 4 5)
 # for循环遍历数组
 for i in ${nums[@]}
 do 
+	# 依次输出 1 2 3 4 5 
 	echo $i
 done
 ```
 
-
-
-语法2
+例子2
 
 ```shell
-for name
-	do list
-done
-# 相当于,读取的是命令行参数
-for name in $1 $2 ...
-	do list
+# $1 $2是命令行参数
+for name in $1 $2
+do
+	# 输出命令行第一个参数，第二个参数
+	echo $name
 done
 ```
 
-## for中使用seq(类似C中的for实现)
+### for中使用seq，类似python中的range(1,20)
 
 seq是产生一个整数序列
 
-例如写成<code>a=`seq 1 20`; echo $a</code>
-
-会输出*1 2 3 ......20*，20个数
-
 ```shell
-for i in `seq 1 254`
+# seq 1 20 会产生 1,2,3,...19,20个数
+for i in `seq 1 20`
 do 
-	ping -c 1 www.baidu.com
+	# 依次输出 1 2 3 ... 20
+	echo $i
 done
 ```
 
